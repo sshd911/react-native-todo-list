@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useLayoutEffect } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Checkmark from '../components/Checkmark';
+import TodoListItem from '../components/TodoListItem';
+import FloatingButton from '../components/FloatingButton';
 
 export default function HomeScreen({ navigation }) {
 
@@ -18,7 +20,7 @@ export default function HomeScreen({ navigation }) {
   }, []);
   return (
     <View style={styles.container}>
-    <Checkmark complete={ false } onPress={(complete) => console.log(complete)}></Checkmark>
+    <FloatingButton></FloatingButton>
       <StatusBar style="light" />
     </View>
   );
