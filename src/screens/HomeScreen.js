@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { useLayoutEffect } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Checkmark from '../components/Checkmark';
 import TodoListItem from '../components/TodoListItem';
 import FloatingButton from '../components/FloatingButton';
+import AlertUtil from '../utils/AlertUtil';
 
 export default function HomeScreen({ navigation }) {
 
@@ -18,9 +19,17 @@ export default function HomeScreen({ navigation }) {
         );
       }});
   }, []);
+
+  function showAddTodoAlert() {
+    AlertUtil.showTextInputAlert('Todo追加', '追加するTODO名を入力してください', (text) => console.log(text))
+  }
+
   return (
     <View style={styles.container}>
-    <FloatingButton></FloatingButton>
+      <View style={{width: '100%'}}>
+        <TodoListItem todoTitle={'テストTODO'}></TodoListItem>
+      </View>
+    <FloatingButton onPress={showAddTodoAlert}></FloatingButton>
       <StatusBar style="light" />
     </View>
   );

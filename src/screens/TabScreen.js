@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import TabListItem from '../components/TabListItem';
 
 export default function TabScreen({ navigation }) {
   useLayoutEffect(() => {
@@ -17,7 +18,9 @@ export default function TabScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>タブ管理画面</Text>
+      <View style={{ width: '100%'}}>
+        <TabListItem tabTitle={'テストタブ'}></TabListItem>
+      </View>
       <StatusBar style="light" />
     </View>
   );
